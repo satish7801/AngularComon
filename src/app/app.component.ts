@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Table-Base';
+  appFn(response : any){
+    console.log(response);
+    confirm("Hello World!");
+  }
 }

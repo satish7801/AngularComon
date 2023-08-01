@@ -9,17 +9,21 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DynamicPipe } from './dynamic.pipe';
+import { ButtonComponent } from './button/button.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    DynamicPipe
+    DynamicPipe,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     NgbModule,
+    MatButtonModule,
     MatTableModule,
     MatIconModule,
     MatPaginatorModule
