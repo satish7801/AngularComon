@@ -7,7 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Table-Base';
-  appFn(response : any){
+  label = "Button Label";
+  icon = "home";
+  type = "fab";
+  appFn(response : string | number){
     console.log(response);
     confirm("Hello World!");
   }
