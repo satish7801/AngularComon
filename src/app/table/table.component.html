@@ -1,0 +1,88 @@
+<!-- <mat-table #table [dataSource]="cityList">
+    <!--- Note that these columns can be defined in any order.
+    The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <!-- <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element;let i = index;let page=pageIndex"> {{ pageIndex * pageSize + i + 1 }}
+        </mat-cell>
+    </ng-container> -->
+
+    <!-- <ng-container *ngFor="let column of data" [matColumnDef]="column.column">
+        <mat-header-cell *matHeaderCellDef>
+          {{ column.label }}
+         
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element[column.datanamefromApi] }}
+        </mat-cell>
+      </ng-container> -->
+      
+
+    <!-- CityName Column -->
+    <!-- <ng-container matColumnDef="cityName">
+        <mat-header-cell *matHeaderCellDef>
+            City Name 
+            
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element | dynamic: data.datanamefromApi}} </mat-cell>
+    </ng-container>
+
+    <mat-header-cell *matHeaderCellDef  >{{cityList[0]}}</mat-header-cell>
+    <div *ngFor="let data of cityList" > -->
+        <!-- <mat-header-cell *matHeaderCellDef> {{data.label}} </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element }} </mat-cell> -->
+<!-- </div>
+    - CountryName Column -->
+    <!-- <ng-container matColumnDef="countryName">
+        <mat-header-cell *matHeaderCellDef> Country Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.countryId }} </mat-cell>
+    </ng-container> -->
+
+    <!-- Status Column -->
+    <!-- <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            {{ element.status | status }}
+        </mat-cell>
+    </ng-container>
+
+- Symbol Column -->
+    <!-- <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <div class="example-button-row">
+                <button mat-stroked-button class="crud-btn" routerLink="{{ cityView + '/' + element.id}}">
+                      <mat-icon aria-hidden="false">visibility</mat-icon>View
+                </button>
+                <button mat-stroked-button class="crud-btn" routerLink="{{ cityUpdate + '/' + element.id}}">
+                      <mat-icon aria-hidden="false">edit</mat-icon>Edit
+                </button>
+                <button mat-stroked-button class="crud-btn" (click)="openDialogBox(element.id)">
+                      <mat-icon aria-hidden="false">delete</mat-icon>Delete
+                </button>
+            </div>
+        </mat-cell>
+    </ng-container> --> 
+
+    <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table> -->
+
+
+<mat-table [dataSource]="cityList">
+    <ng-container *ngFor="let column of ColumnList" [matColumnDef]="column.column">
+      <mat-header-cell mat-header-cell *matHeaderCellDef>
+        {{ column.label }}    
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{ element[column.datanamefromApi] }}
+      </mat-cell>
+    </ng-container>
+  
+    <!-- Table rows -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  
