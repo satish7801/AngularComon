@@ -1,46 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { singleColumn } from '../tableinterface';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
 
-  displayedColumns = ['id', 'cityName', 'countryName'];
+  displayedColumns: string[] = [];
+  ColumnList: singleColumn[] = [];
+  @Input() LabelList: string[] = [];
+  @Input() cityList: any[] = [];
 
-  ColumnList: any[] = [
-    {
-      column: "id",
-      label: "Id",
-      datanamefromApi: "id", // Access the 'name' property from the 'element' object
-    },
-    {
-      column: "cityName",
-      label: "City Name",
-      datanamefromApi: "name", // Access the 'name' property from the 'element' object
-    },
-    {
-      column: "countryName",
-      label: "Country ID",
-      datanamefromApi: "countryId", // Access the 'countryId' property from the 'element' object
-    },
-    // Add more items if needed...
-  ];
+  ngOnInit(): void {
+  this.displayedColumns = Object.keys(this.cityList[0]); 
 
-
-  LabelList: any[] = [];
-
-
-
-  cityList: any[] = [
-    { id: "1", name: "City 1", countryId: "C1" },
-    { id: "2", name: "City 2", countryId: "C2" },
-    // Add more items if needed...
-  ];
-
- constructor() {
-
- }
+  for (let index = 0; index < this.displayedColumns.length; index++) {   
+    if(this.LabelList[index] == null || this.LabelList[index] == '' ){
+      this.LabelList[index] = this.displayedColumns[index]
+    }
+    this.ColumnList.push({
+      column: this.displayedColumns[index],
+      datanamefromApi: this.displayedColumns[index],
+      label: this.LabelList[index]
+    })
+  }
 
 }
+}
+
+
