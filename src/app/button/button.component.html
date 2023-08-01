@@ -1,0 +1,8 @@
+<button *ngIf="type === 'raised'" mat-raised-button [color]="giveColor" (click)="hello(1)" [type]="buttonType">
+  <mat-icon *ngIf="icon.length>0">{{icon}}</mat-icon>
+  <span>{{label}}</span>
+</button>
+
+<button *ngIf="type === 'fab'" mat-fab [color]="giveColor" (click)="hello(1)">
+  <mat-icon *ngIf="icon.length>0">{{icon}}</mat-icon>
+</button>
